@@ -46,6 +46,8 @@ a. Download the Pizza-store-initial project. For convenience we have configured 
 	<version>9.2.0</version>
 </dependency>
 
+```
+
 ####### Spring Data REST Dependencies
 
 ```

@@ -434,6 +434,13 @@ create region --name=customer --type=PARTITION_REDUNDANT_PERSISTENT
 create region --name=pizza_orders --type=PARTITION_REDUNDANT_PERSISTENT
 ```
 
+WAN Replicated Region for Cross Foundation High Availability
+
+```
+create region --name=pizza_orders --gateway-sender-id=send_to_8 --type=PARTITION_REDUNDANT
+```
+
+
 ## Bind and deploy PCC Client with PCC service
 
 ###### Bind to PCC service by specifying service name in the manifest.yml

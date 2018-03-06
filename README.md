@@ -2,6 +2,27 @@
 
 This workshop will provide developers with hands on experience in building Pivotal Cloud Cache(PCC) clients using Spring Data GemFire (SDG), Spring Data REST, Spring Cloud and Spring Boot. In this session we'll be implementing a pizza store app for ordering pizza backed by PCC. Session includes presentations, demos and hands on labs.
 
+Demo App: http://pizza-store-pcc-client.apps.numerounocloud.com/orderPizza?email=lucynorton@gmail.com&type=fancy
+
+###### Result
+
+Cache Miss Scenario
+
+```
+Result [Pizza{name='fancy', toppings=[arugula, chicken], sauce='pesto', Customer='Customer [id=05eKpgOFA, name=Lucy Norton, email=lucynorton@gmail.com, address=48665 Washington, birthday=1965-02-10T06:20:27.828Z]'}] 
+Cache Miss for Customer [true] 
+Read from [MYSQL] 
+Elapsed Time [234 ms]
+```
+
+Data Returned From Cache 
+```
+Result [Pizza{name='fancy', toppings=[arugula, chicken], sauce='pesto', Customer='Customer [id=05eKpgOFA, name=Lucy Norton, email=lucynorton@gmail.com, address=48665 Washington, birthday=1965-02-10T06:20:27.828Z]'}] 
+Cache Miss for Customer [false] 
+Read from [PCC] 
+Elapsed Time [2 ms]
+```
+
 ## Prerequisites
 
 1. PCF Org/Space with Pivotal Cloud Cache and Mysql
@@ -16,7 +37,7 @@ Let's incrementally build pizza store app which will showcase various features s
 
 a. Download the Pizza-store-initial project. For convenience we have configured the POM with required dependencies and logic required for configuring client for connecting with PCC instance
 
-####### Spring Data Gemfire Dependencies
+###### Spring Data Gemfire Dependencies
 
 ```
 <dependency>
@@ -48,7 +69,7 @@ a. Download the Pizza-store-initial project. For convenience we have configured 
 
 ```
 
-####### Spring Data REST Dependencies
+###### Spring Data REST Dependencies
 
 ```
 <dependency>
@@ -284,7 +305,7 @@ e. Implement API for Ordering Pizza
 
 Eg. http://pizza-store-pcc-client.apps.numerounocloud.com/orderPizza?email=lucynorton@gmail.com&type=fancy
 
-######## Result
+###### Result
 
 Cache Miss Scenario
 

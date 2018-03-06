@@ -81,7 +81,7 @@ a. Download the Pizza-store-initial project. For convenience we have configured 
 
 Note: All the boilerplate code required for this demo app has been provided in Pizza-store-initial. We'll not be covering Spring-Data-JPA concepts in this workshop.
 
-###### Step 2: configure PCC client with SDG annotations
+#### Step 2: configure PCC client with SDG annotations
 
 a. Create a configuration file which transforms this boot app into PCC Client cache. @ClientCacheApplication configures the boot application to treat this app as PCC Client and automatically generates a client pool.
 
@@ -140,10 +140,10 @@ public class ClientConfiguration {
 
 ```
 
-###### Step 3: Create Domain objects PizzaOrder and Customer. Get the domain objects from pizza-store-pcc-client project
+#### Step 3: Create Domain objects PizzaOrder and Customer. Get the domain objects from pizza-store-pcc-client project
 
 
-###### Step 4: Enabling PCC client with REST repositories
+#### Step 4: Enabling PCC client with REST repositories
 
 @EnableGemfireRepositories annotation configures the client to create Spring Data GemFire repositories for all the domain objects annotated with @Region
 
@@ -172,7 +172,7 @@ public interface CustomerRepo extends GemfireRepository<Customer, String> {
 }
 ```
 
-###### Step 5: Look-aside caching
+#### Step 5: Look-aside caching
 
 a. @EnableGemfireCaching annotation enables spring caching backed by PCC. This enables @Cachable annotation to presist the service response into the cache seamlessly
 
@@ -221,7 +221,7 @@ public class CustomerSearchService {
 }
 ```
 
-###### Step 6: Implement Pizza Store APIs
+#### Step 6: Implement Pizza Store APIs
 
 a. Create a REST controller. All the necessary repositories which we created in earlier steps need to be Autowired in this controller
 

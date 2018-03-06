@@ -381,6 +381,22 @@ private PizzaOrder makePlainPizza() {
 
 ```
 
+#### Step 7: Implement Continuous Queries (CQ)
+
+SDG makes it extremely easy to configure Continuous Queries with help of @ContinousQuery annotation. All the logic required for event handling will be handled behind the scene by SDG, App developer only needs to worry about business logic. Example CQ below - 
+
+```
+@ContinuousQuery(name = "PestoQuery", query = "SELECT * FROM /pizza_orders WHERE sauce = 'pesto'",
+			durable = true)
+    public void handlePizzaChanges(CqEvent event) {
+
+	System.out.println("*********Logging CQ Event*********");
+    System.out.println("CQ Event: \t" + event);
+}
+
+```
+
+
 ## Create PCC Instance
 Services can be created through Apps Manager Marketplace or by executing cf cli commands
 
@@ -394,13 +410,13 @@ cf create-service p-cloudcache extra-small pcc-dev-cluster
 ###### Step 2: Create service key for retrieving connection information for GFSH cli
 
 ```
-cf create-service-key pcc-dev-cluster devkey
+cf create-service-key workshop-pcc devkey
 ```
 
 ###### Step 3: Retrieve url for PCC cli (GFSH) and corresponding credentials 
 
 ```
-cf service-key pcc-dev-cluster devkey
+cf service-key workshop-pcc devkey
 ```
 
 ###### Step 4: Login into to PCC cli (GFSH)

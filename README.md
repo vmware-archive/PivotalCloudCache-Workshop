@@ -33,7 +33,7 @@ Elapsed Time [2 ms]
 
 Let's incrementally build pizza store app which will showcase various features supported by PCC and Spring Data,
 
-###### Step 1: Create Skeleton PCC Client project
+#### Step 1: Create Skeleton PCC Client project
 
 a. Download the Pizza-store-initial project. For convenience we have configured the POM with required dependencies and logic required for configuring client for connecting with PCC instance
 

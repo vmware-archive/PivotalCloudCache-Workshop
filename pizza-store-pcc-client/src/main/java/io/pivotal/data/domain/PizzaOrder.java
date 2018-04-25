@@ -10,9 +10,9 @@ public class PizzaOrder {
 
 	@Id
     String orderId;
-    String name;
-    Set<String> toppings;
+	String name;
     String sauce;
+    Set<String> toppings;
     Customer customerInfo;
 
     @Override

@@ -55,13 +55,13 @@
 		<dependency>
 			<groupId>io.pivotal.gemfire</groupId>
 			<artifactId>geode-core</artifactId>
-			<version>9.2.0</version>
+			<version>9.3.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>io.pivotal.gemfire</groupId>
 			<artifactId>geode-cq</artifactId>
-			<version>9.2.0</version>
+			<version>9.3.0</version>
 		</dependency>
 
 		<dependency>

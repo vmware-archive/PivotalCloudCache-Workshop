@@ -3,13 +3,13 @@
 
 #### Setup the database
 
-http://pizza-store-pcc-client-1.apps.numerounocloud.com/loaddb?amount=100
+http://pizza-store-pcc-client.xyz.numerounocloud.com/loaddb?amount=100
 
 ```
 New customers successfully saved into Database
 ```
 
-http://pizza-store-pcc-client-1.apps.numerounocloud.com/showdb
+http://pizza-store-pcc-client.xyz.numerounocloud.com/showdb
 
 ```
 First 10 customers are show here: 

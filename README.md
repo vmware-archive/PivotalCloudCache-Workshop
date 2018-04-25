@@ -18,7 +18,7 @@ GET /orders?email={emailId} - get specific value
 
 ```
 
-http://pizza-store-pcc-client.apps.numerounocloud.com/orderPizza?email=lucynorton@gmail.com&type=fancy
+http://pizza-store-pcc-client.xyz.numerounocloud.com/orderPizza?email=lucynorton@gmail.com&type=fancy
 
 ###### Result
 

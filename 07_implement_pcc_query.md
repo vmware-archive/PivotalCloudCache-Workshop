@@ -39,7 +39,7 @@ public String getOrdersByEmailId(@RequestParam(value = "email", required = true)
 create index --name=CustomerEmailIndex --region="/pizza_orders o" --expression="o.customerInfo.email"
 ```
 
-#### Step 4: Provide an hint to PCC to use the newly created index by using @Hint annotation in PizzaOrderRepo.java
+#### Step 4: Provide a hint for PCC to use the newly created index by using @Hint annotation in PizzaOrderRepo.java
 
 ```
 @Limit(10)

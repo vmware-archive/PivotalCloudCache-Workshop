@@ -1,6 +1,6 @@
 ## Look-aside caching
 
-#### Step 1: @EnableGemfireCaching annotation enables spring caching backed by PCC. This enables @Cachable annotation to presist the service response into the cache seamlessly
+#### Step 1: @EnableGemfireCaching annotation enables spring caching backed by PCC. This enables @Cachable annotation to persist the service response into the cache seamlessly
 
 ```
 ...

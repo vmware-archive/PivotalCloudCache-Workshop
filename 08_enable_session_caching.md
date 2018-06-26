@@ -8,13 +8,13 @@ Implement a session API for demonstrating http session offloading. This sample A
 cf update-service pcc-dev-cluster -t session-replication
 ```
 
-#### Step 2: Create a region for stroing session objects. Default region name is ClusteredSpringSessions.
+#### Step 2: Create a region for storing session objects. Default region name is ClusteredSpringSessions
 
 ```
 create region --name=ClusteredSpringSessions --type=PARTITION_HEAP_LRU
 ```
 
-#### Step 3: Update the pom.xml to include the below dependency
+#### Step 3: Update the pom.xml to include the spring-session-data-gemfire dependency
 
 ```
 <dependency>
@@ -37,6 +37,8 @@ public class CloudCacheConfig {
 #### Step 5: Implement a controller for demonstrating session caching.
 
 ```
+package io.pivotal.data.controller;
+
 @RestController
 public class HttpSessionController {
 

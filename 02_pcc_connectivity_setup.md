@@ -2,40 +2,19 @@
 
 Let's incrementally build pizza store app which will showcase various features supported by PCC and Spring Data
 
-Note: All the boilerplate code required for this demo app has been provided in Pizza-store-initial. We'll not be covering Spring-Data-JPA concepts in this workshop.
+Note: All the boilerplate code required for this demo app has been provided in Pizza-store-initial. We'll not be covering spring-data-jpa concepts in this workshop.
 
 #### Step 1: Create Skeleton PCC Client project
 
-a. Download the Pizza-store-initial project. For convenience we have configured the POM with required dependencies and logic required for configuring client for connecting with PCC instance
+a. Download the Pizza-store-initial project. For convenience we have configured the POM with required dependencies for mysql and we'll be adding only dependencies required for PCC.
 
-###### Spring Data Gemfire Dependencies
+###### Pivotal Cloud Cache Dependency
 
 ```
 <dependency>
-	<groupId>org.springframework.data</groupId>
-	<artifactId>spring-data-gemfire</artifactId>
-	<exclusions>
-		<exclusion>
-			<groupId>io.pivotal.gemfire</groupId>
-			<artifactId>geode-wan</artifactId>
-		</exclusion>
-		<exclusion>
-			<groupId>io.pivotal.gemfire</groupId>
-			<artifactId>geode-lucene</artifactId>
-		</exclusion>
-	</exclusions>
-</dependency>
-
-<dependency>
-	<groupId>io.pivotal.gemfire</groupId>
-	<artifactId>geode-core</artifactId>
-	<version>9.3.0</version>
-</dependency>
-
-<dependency>
-	<groupId>io.pivotal.gemfire</groupId>
-	<artifactId>geode-cq</artifactId>
-	<version>9.3.0</version>
+	<groupId>org.springframework.geode</groupId>
+	<artifactId>gemfire-spring-boot-starter</artifactId>
+	<version>1.0.0.BUILD-SNAPSHOT</version>
 </dependency>
 
 ```
@@ -50,33 +29,17 @@ a. Download the Pizza-store-initial project. For convenience we have configured 
 
 ```
 
-#### Step 2: Add logic for parsing VCAP services and creating client connection pool
+#### Step 2: configure PCC client with Spring Data GemFire(SDG) annotations
 
-For connecting to PCC cluster, VCAP exposes two important information - PCC locators and user credentials. 
-
-VcapEnvParser.java is responsible for reading the environment variable <strong>VCAP_SERVICES</strong> present in Cloud Foundry environment.
-
-1. To parse VCAP_SERVICES environment variable
-2. To set security properties of Spring Data GemFire
-
-
-#### Step 3: configure PCC client with SDG annotations
-
-a. Create a configuration file which transforms this boot app into PCC Client cache. @ClientCacheApplication configures the boot application to treat this app as PCC Client and automatically generates a client pool.
+a. Create a configuration file which transforms this boot app into PCC Client cache. @EnableDurableClient configures the boot application as PCC Client and spring boot autoreconfigurations parses the vcap services to create a client connection pool.
 
 ```
-@ClientCacheApplication(name = "PccApiClient", durableClientId = "pizza-store-api",
-keepAlive = true, readyForEvents = true, subscriptionEnabled = true)
-@EnableEntityDefinedRegions(basePackages = "io.pivotal.data.domain")
-@EnableGemfireCaching
-@EnableGemfireRepositories(basePackages = "io.pivotal.data.repo")
-@EnableJpaRepositories(basePackages = "io.pivotal.data.jpa.repo")
-@EnableSecurity
-@EnablePdx
+@EnableDurableClient(id = "PccApiClient")
+@EnableLogging(logLevel = "info")
+@UseMemberName("PccApiClient")
 @Profile("cloud")
-@ComponentScan(basePackages = "io.pivotal.data.continuousquery")
 @Configuration
-public class ClientConfiguration {
+public class CloudCacheConfig {
 
 }
 

@@ -2,6 +2,7 @@ package io.pivotal.data.controller;
 
 import java.util.Calendar;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,6 +108,25 @@ public class PizzaOrderController {
 				+ "Cache Miss for Customer [<b>%2$s</b>] <br/>"
 				+ "Read from [<b>%3$s</b>] <br/>"
 				+ "Elapsed Time [<b>%4$s ms</b>]%n", pizzaObject, isCacheMiss, sourceFrom, (elapsedTime - startTime));
+	}
+
+	@RequestMapping(method = RequestMethod.GET, path = "/orders")
+	@ResponseBody
+	public String getOrdersByEmailId(@RequestParam(value = "email", required = true) String email) {
+
+		StringBuilder result = new StringBuilder();
+		long startTime = System.currentTimeMillis();
+		List<PizzaOrder> pizzaObjects = pizzaOrderRepo.findPizzaOrderByEmailId(email);
+		long elapsedTime = System.currentTimeMillis();
+
+	    if (pizzaObjects != null && pizzaObjects.size() > 0) {
+
+	    	pizzaObjects.forEach(item -> result.append(item + "</br>"));
+
+	    	return String.format("Result [<b>%1$s</b>] <br/>"
+	    			+ "Elapsed Time [<b>%2$s ms</b>]%n", result.toString(), (elapsedTime - startTime));
+	    }
+		return "No Results Found.";
 	}
 
 	private PizzaOrder createPizzaObject(String pizzaType) {

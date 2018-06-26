@@ -1,5 +1,25 @@
-## Run the Pizza Store App
+## Deploy the Pizza Store App
 
+#### Step 1: create a manifest.yml for deploying the app on to PCF. We need to bind this app to PCC and mysql instances created in Exericese 01.
+
+```
+---
+applications:
+- name: pizza-store-pcc-client
+  random-route: true
+  path: target/pizza-store-pcc-client-0.0.1-SNAPSHOT.jar
+  services:
+  - workshop-pcc
+  - workshop-mysql
+```
+
+#### Step 2: Deploy the app on PCF
+
+```
+cf push
+```
+
+## Run the Pizza Store App
 
 #### Setup the database
 

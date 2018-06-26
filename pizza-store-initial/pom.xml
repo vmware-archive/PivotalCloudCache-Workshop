@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.RELEASE</version>
+		<version>2.0.3.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -37,31 +37,33 @@
 	      </exclusions>
 	    </dependency>
 
+		<!-- PCC Dependencies -->
+
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-gemfire</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>io.pivotal.gemfire</groupId>
-					<artifactId>geode-wan</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>io.pivotal.gemfire</groupId>
-					<artifactId>geode-lucene</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>io.pivotal.gemfire</groupId>
-			<artifactId>geode-core</artifactId>
-			<version>9.3.0</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>io.pivotal.gemfire</groupId>
-			<artifactId>geode-cq</artifactId>
-			<version>9.3.0</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+		</dependency>
+
+		<!-- Spring Data REST -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+
+		<!-- Spring Data JPA -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
 		<dependency>
@@ -74,10 +76,10 @@
         	<artifactId>spring-cloud-spring-service-connector</artifactId>
         </dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-rest</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
 
 		<!-- jfairy Fake Data Generator: https://github.com/Codearte/jfairy-->
 		<dependency>
@@ -86,17 +88,23 @@
 			<version>0.5.3</version>
 		</dependency>
 
-		<!-- Spring Data JPA -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-
 		<!-- HyperSQL DB for Local Testing -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-		</dependency>
+		</dependency> -->
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
+        </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

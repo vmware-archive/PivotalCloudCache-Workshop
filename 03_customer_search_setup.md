@@ -4,22 +4,11 @@ Lets implement the APIs and Database Service call required for pizza store app.
 
 #### Step 1: Create Domain objects PizzaOrder and Customer. Get the domain objects from pizza-store-pcc-client project
 
-
-#### Step 2: Enabling PCC client with REST repositories
-
-@EnableGemfireRepositories annotation configures the client to create Spring Data GemFire repositories for all the domain objects annotated with @Region
+#### Step 2: Implement GemFire repositories for PizzaOrder and Customer domain objects.
 
 ```
-@ClientCacheApplication(name = "PccApiClient", durableClientId = "pizza-store-api",
-keepAlive = true, readyForEvents = true, subscriptionEnabled = true)
-@EnableEntityDefinedRegions(basePackages = "io.pivotal.data.domain")
-@EnableGemfireRepositories(basePackages = "io.pivotal.data.repo")
-@Configuration
-public class ClientConfiguration {
+package io.pivotal.data.repo;
 
-```
-
-```
 @RepositoryRestResource(path = "pizzaOrders")
 public interface PizzaOrderRepo extends GemfireRepository<PizzaOrder, String> {
 
@@ -28,9 +17,28 @@ public interface PizzaOrderRepo extends GemfireRepository<PizzaOrder, String> {
 ```
 
 ```
+package io.pivotal.data.repo;
+
 @RepositoryRestResource(path = "customers")
 public interface CustomerRepo extends GemfireRepository<Customer, String> {
 
+}
+```
+
+#### Step 3: configuring spring boot app with REST repositories
+
+@EnableGemfireRepositories annotation configures the client to create Spring Data GemFire repositories for all the domain objects annotated with @Region
+
+```
+@EnableDurableClient(id = "PccApiClient")
+@EnableLogging(logLevel = "info")
+@UseMemberName("PccApiClient")
+@EnableEntityDefinedRegions(basePackages = "io.pivotal.data.domain")
+@EnableGemfireRepositories(basePackages = "io.pivotal.data.repo")
+@ComponentScan(basePackages = "io.pivotal.data.continuousquery")
+@Profile("cloud")
+@Configuration
+public class CloudCacheConfig {
 }
 ```
 

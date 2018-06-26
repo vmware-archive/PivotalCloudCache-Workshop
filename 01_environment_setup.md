@@ -5,7 +5,7 @@
 Pizza store app will make service calls to this mysql instance
 
 ```
-cf create-service p.mysql db-small workshop-db
+cf create-service p-mysql db-small workshop-db
 ```
 
 ### Create PCC Instance

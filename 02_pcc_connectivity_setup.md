@@ -13,8 +13,8 @@ a. Download the Pizza-store-initial project. For convenience we have configured 
 ```
 <dependency>
 	<groupId>org.springframework.geode</groupId>
-	<artifactId>gemfire-spring-boot-starter</artifactId>
-	<version>1.0.0.BUILD-SNAPSHOT</version>
+	<artifactId>spring-geode-starter</artifactId>
+	<version>1.0.0.M1</version>
 </dependency>
 
 ```

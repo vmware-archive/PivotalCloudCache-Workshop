@@ -4,17 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>io.pivotal.data</groupId>
-	<artifactId>pizza-store-pcc-client</artifactId>
+	<artifactId>pizza-store-pcc-client-initial</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>pizza-store-pcc-client</name>
+	<name>pizza-store-pcc-client-initial</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.3.RELEASE</version>
+		<version>2.0.6.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -40,10 +40,10 @@
 		<!-- PCC Dependencies -->
 
 		<dependency>
-	<groupId>org.springframework.geode</groupId>
-	<artifactId>gemfire-spring-boot-starter</artifactId>
-	<version>1.0.0.BUILD-SNAPSHOT</version>
-</dependency>
+			<groupId>org.springframework.geode</groupId>
+			<artifactId>spring-geode-starter</artifactId>
+			<version>1.0.0.M3</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>

@@ -14,7 +14,7 @@ a. Download the Pizza-store-initial project. For convenience we have configured 
 <dependency>
 	<groupId>org.springframework.geode</groupId>
 	<artifactId>spring-geode-starter</artifactId>
-	<version>1.0.0.M1</version>
+	<version>1.0.0.M3</version>
 </dependency>
 
 ```
@@ -31,10 +31,9 @@ a. Download the Pizza-store-initial project. For convenience we have configured 
 
 #### Step 2: configure PCC client with Spring Data GemFire(SDG) annotations
 
-a. Create a configuration file which transforms this boot app into PCC Client cache. @EnableDurableClient configures the boot application as PCC Client and spring boot autoreconfigurations parses the vcap services to create a client connection pool.
+a. Create a configuration file which transforms this boot app into PCC Client cache. `spring-geode-starter` enables autoreconfiguration support for PCC and creates PCC client connection pool.
 
 ```
-@EnableDurableClient(id = "PccApiClient")
 @EnableLogging(logLevel = "info")
 @UseMemberName("PccApiClient")
 @Profile("cloud")
@@ -42,5 +41,4 @@ a. Create a configuration file which transforms this boot app into PCC Client ca
 public class CloudCacheConfig {
 
 }
-
 ```

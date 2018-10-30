@@ -30,7 +30,6 @@ public interface CustomerRepo extends GemfireRepository<Customer, String> {
 @EnableGemfireRepositories annotation configures the client to create Spring Data GemFire repositories for all the domain objects annotated with @Region
 
 ```
-@EnableDurableClient(id = "PccApiClient")
 @EnableLogging(logLevel = "info")
 @UseMemberName("PccApiClient")
 @EnableEntityDefinedRegions(basePackages = "io.pivotal.data.domain")

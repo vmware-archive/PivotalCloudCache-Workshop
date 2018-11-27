@@ -14,7 +14,7 @@ Services can be created through Apps Manager Marketplace or by executing cf cli 
 ###### Display available PCC plans
 
 ```
-cf marketplace p-cloudcache
+cf marketplace -s p-cloudcache
 ```
 
 ###### Step 1: create a PCC OnDemand service in your org & space

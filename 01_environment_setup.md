@@ -20,7 +20,7 @@ cf marketplace -s p-cloudcache
 ###### Step 1: create a PCC OnDemand service in your org & space
 
 ```
-cf create-service p-cloudcache extra-small workshop-pcc
+cf create-service p-cloudcache dev-plan workshop-pcc
 
 ```
 

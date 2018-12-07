@@ -35,7 +35,6 @@ public interface CustomerRepo extends GemfireRepository<Customer, String> {
 @EnableEntityDefinedRegions(basePackages = "io.pivotal.data.domain")
 @EnableGemfireRepositories(basePackages = "io.pivotal.data.repo")
 @ComponentScan(basePackages = "io.pivotal.data.continuousquery")
-@Profile("cloud")
 @Configuration
 public class CloudCacheConfig {
 }

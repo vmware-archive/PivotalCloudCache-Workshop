@@ -36,7 +36,6 @@ a. Create a configuration file which transforms this boot app into PCC Client ca
 ```
 @EnableLogging(logLevel = "info")
 @UseMemberName("PccApiClient")
-@Profile("cloud")
 @Configuration
 public class CloudCacheConfig {
 

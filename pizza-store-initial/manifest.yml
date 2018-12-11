@@ -2,7 +2,7 @@
 applications:
 - name: pizza-store-pcc-client
   random-route: false
-  path: target/pizza-store-pcc-client-0.0.1-SNAPSHOT.jar
+  path: target/pizza-store-pcc-client-initial-0.0.1-SNAPSHOT.jar
   services:
   - workshop-pcc
   - workshop-db

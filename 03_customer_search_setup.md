@@ -32,9 +32,8 @@ public interface CustomerRepo extends GemfireRepository<Customer, String> {
 ```
 @EnableLogging(logLevel = "info")
 @UseMemberName("PccApiClient")
-@EnableEntityDefinedRegions(basePackages = "io.pivotal.data.domain")
-@EnableGemfireRepositories(basePackages = "io.pivotal.data.repo")
-@ComponentScan(basePackages = "io.pivotal.data.continuousquery")
+@EnableEntityDefinedRegions(basePackageClasses = Customer.class)
+@EnableGemfireRepositories(basePackageClasses = CustomerRepo.class)
 @Configuration
 public class CloudCacheConfig {
 }

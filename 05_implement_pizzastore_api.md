@@ -8,10 +8,7 @@
 public class PizzaOrderController {
 
 	@Autowired
-	CustomerRepo customer;
-
-	@Autowired
-	PizzaOrderRepo pizzaOrderRepo;
+	PizzaOrderRepo pccPizzaOrderRepository;
 
 	@Autowired
 	CustomerJpaRepository jpaCustomerRepository;
@@ -100,7 +97,7 @@ public String orderPizza(@RequestParam(value = "email", required = true) String 
 	pizzaObject.setOrderId(orderId);
 	pizzaObject.setCustomerInfo(customer);
 
-	pizzaOrderRepo.save(pizzaObject);
+	pccPizzaOrderRepository.save(pizzaObject);
 
 	return String.format("Result [<b>%1$s</b>] <br/>"
 			+ "Cache Miss for Customer [<b>%2$s</b>] <br/>"

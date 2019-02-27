@@ -6,11 +6,15 @@ import org.springframework.data.gemfire.config.annotation.EnableEntityDefinedReg
 import org.springframework.data.gemfire.config.annotation.EnableLogging;
 import org.springframework.data.gemfire.repository.config.EnableGemfireRepositories;
 import org.springframework.geode.config.annotation.UseMemberName;
+import org.springframework.session.data.gemfire.config.annotation.web.http.EnableGemFireHttpSession;
+
+import io.pivotal.data.domain.Customer;
+import io.pivotal.data.repo.CustomerRepo;
 
 
-//@EnableGemFireHttpSession(poolName = "DEFAULT")
-@EnableEntityDefinedRegions(basePackages = "io.pivotal.data.domain")
-@EnableGemfireRepositories(basePackages = "io.pivotal.data.repo")
+@EnableGemFireHttpSession(poolName = "DEFAULT",regionName = "springsessions")
+@EnableEntityDefinedRegions(basePackageClasses = Customer.class)
+@EnableGemfireRepositories(basePackageClasses = CustomerRepo.class)
 @ComponentScan(basePackages = "io.pivotal.data.continuousquery")
 @EnableLogging(logLevel = "info")
 @UseMemberName("PccApiClient")

@@ -2,9 +2,9 @@
 
 Lets implement the APIs and Database Service call required for pizza store app.
 
-#### Step 1: Create Domain objects PizzaOrder and Customer. Get the domain objects from pizza-store-pcc-client project
+#### Step 1: Review Domain objects PizzaOrder and Customer.
 
-#### Step 2: Implement GemFire repositories for PizzaOrder and Customer domain objects.
+#### Step 2: Create a new package `io.pivotal.data.repo` and Implement GemFire repositories for PizzaOrder and Customer domain objects.
 
 ```
 package io.pivotal.data.repo;

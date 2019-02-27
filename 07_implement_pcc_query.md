@@ -19,7 +19,7 @@ public String getOrdersByEmailId(@RequestParam(value = "email", required = true)
 
 	StringBuilder result = new StringBuilder();
 	long startTime = System.currentTimeMillis();
-	List<PizzaOrder> pizzaObjects = pizzaOrderRepo.findPizzaOrderByEmailId(email);
+	List<PizzaOrder> pizzaObjects = pccPizzaOrderRepository.findPizzaOrderByEmailId(email);
 	long elapsedTime = System.currentTimeMillis();
 
     if (pizzaObjects != null && pizzaObjects.size() > 0) {

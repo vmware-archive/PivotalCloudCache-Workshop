@@ -1,4 +1,4 @@
-## Deploy the Pizza Store App
+## Deploy Pizza Store App on PCF
 
 #### Step 1: create a manifest.yml for deploying the app on to PCF. We need to bind this app to PCC and mysql instances created in Exericese 01.
 
@@ -23,7 +23,7 @@ cf push
 
 #### Setup the database
 
-http://pizza-store-pcc-client.xyz.numerounocloud.com/loaddb?amount=100
+http://<app-url>/loaddb?amount=100
 
 ```
 New customers successfully saved into Database
@@ -42,7 +42,7 @@ Customer [id=2mDAi0qRr, name=Gianna Merritt, email=merritt@yahoo.com, address=25
 
 #### Pizza Store APIs
 
-http://pizza-store-pcc-client.xyz.numerounocloud.com/pizzas
+http://<app-url>/pizzas
 
 ```
 Lets Order Some Pizza 
@@ -53,6 +53,12 @@ GET /orderPizza?email={emailId}&type={pizzaType} - Order a pizza
 GET /orders?email={emailId} - get specific value 
 
 ```
+
+#### Order a Pizza using `/orderPizza` API
+
+http://<app-url>/orderPizza?email=XXX&type=fancy
+
+Note: find a customer email address from `/showdb` API
 
 http://pizza-store-pcc-client.xyz.numerounocloud.com/orderPizza?email=lucynorton@gmail.com&type=fancy
 

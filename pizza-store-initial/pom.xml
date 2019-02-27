@@ -94,11 +94,11 @@
 			<version>0.5.3</version>
 		</dependency>
 
-		<!-- HyperSQL DB for Local Testing -->
-<!-- 		<dependency>
+		<!-- HyperSQL DB for Local Workspace Testing -->
+ 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-		</dependency> -->
+		</dependency> 
 
         <dependency>
             <groupId>io.springfox</groupId>

@@ -20,7 +20,6 @@ import io.codearte.jfairy.producer.person.Person;
 import io.pivotal.data.domain.Customer;
 import io.pivotal.data.domain.PizzaOrder;
 import io.pivotal.data.jpa.repo.CustomerJpaRepository;
-import io.pivotal.data.repo.CustomerRepo;
 import io.pivotal.data.repo.PizzaOrderRepo;
 import io.pivotal.data.service.CustomerSearchService;
 
@@ -29,10 +28,7 @@ import io.pivotal.data.service.CustomerSearchService;
 public class PizzaOrderController {
 
 	@Autowired
-	CustomerRepo customer;
-
-	@Autowired
-	PizzaOrderRepo pizzaOrderRepo;
+	PizzaOrderRepo pccPizzaOrderRepository;
 
 	@Autowired
 	CustomerJpaRepository jpaCustomerRepository;
@@ -102,7 +98,7 @@ public class PizzaOrderController {
 		pizzaObject.setOrderId(orderId);
 		pizzaObject.setCustomerInfo(customer);
 
-		pizzaOrderRepo.save(pizzaObject);
+		pccPizzaOrderRepository.save(pizzaObject);
 
 		return String.format("Result [<b>%1$s</b>] <br/>"
 				+ "Cache Miss for Customer [<b>%2$s</b>] <br/>"
@@ -116,7 +112,7 @@ public class PizzaOrderController {
 
 		StringBuilder result = new StringBuilder();
 		long startTime = System.currentTimeMillis();
-		List<PizzaOrder> pizzaObjects = pizzaOrderRepo.findPizzaOrderByEmailId(email);
+		List<PizzaOrder> pizzaObjects = pccPizzaOrderRepository.findPizzaOrderByEmailId(email);
 		long elapsedTime = System.currentTimeMillis();
 
 	    if (pizzaObjects != null && pizzaObjects.size() > 0) {

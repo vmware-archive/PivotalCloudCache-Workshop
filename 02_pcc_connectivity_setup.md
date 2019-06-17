@@ -6,7 +6,9 @@ Note: All the boilerplate code required for this demo app has been provided in P
 
 #### Step 1: Create Skeleton PCC Client project
 
-a. Download the Pizza-store-initial project. For convenience we have configured the POM with required dependencies for mysql and we'll be adding only dependencies required for PCC.
+a. Download the Pizza-store-initial project. For convenience we have configured the POM with required dependencies for mysql and PCC. 
+
+Following are the dependency required for PCC and exposing the PCC repository using REST endpoints for CRUD Operations
 
 ###### Pivotal Cloud Cache Dependency
 
@@ -14,7 +16,7 @@ a. Download the Pizza-store-initial project. For convenience we have configured 
 <dependency>
 	<groupId>org.springframework.geode</groupId>
 	<artifactId>spring-geode-starter</artifactId>
-	<version>1.0.0.M3</version>
+	<version>1.0.0.RELEASE</version>
 </dependency>
 
 ```

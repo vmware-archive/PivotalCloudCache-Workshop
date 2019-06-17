@@ -1,5 +1,7 @@
 ## Setup local PCC instance using GFSH
 
+Start `gfsh` on Local Workstation (Windows or Mac) and run the following commands to setup local working environment - 
+
 #### Step 1: Start a locator
 
 ```

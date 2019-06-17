@@ -2,29 +2,22 @@
 
 Implement a session API for demonstrating http session offloading. This sample API creates a session object and increments no. of page hits.
 
-#### Step 1: We need to update the PCC cluster to enable session state caching.
-
-```
-cf update-service pcc-dev-cluster -t session-replication
-```
-
-#### Step 2: Create a region for storing session objects. Default region name is ClusteredSpringSessions
+#### Step 1: Create a region for storing session objects. Default region name is ClusteredSpringSessions
 
 ```
 create region --name=ClusteredSpringSessions --type=PARTITION_HEAP_LRU
 ```
 
-#### Step 3: Update the pom.xml to include the spring-session-data-gemfire dependency
+#### Step 2: Update the pom.xml to include the spring-session-data-gemfire dependency
 
 ```
 <dependency>
 	<groupId>org.springframework.session</groupId>
 	<artifactId>spring-session-data-gemfire</artifactId>
-	<version>2.0.3.RELEASE</version>
 </dependency>
 ```
 
-#### Step 4: navigate to configuration file and enable session caching using @EnableGemFireHttpSession
+#### Step 3: navigate to configuration file and enable session caching using @EnableGemFireHttpSession
 
 ```
 ...
@@ -34,7 +27,7 @@ public class CloudCacheConfig {
 }
 ```
 
-#### Step 5: Implement a controller for demonstrating session caching.
+#### Step 4: Implement a controller for demonstrating session caching.
 
 ```
 package io.pivotal.data.controller;
@@ -64,9 +57,9 @@ public class HttpSessionController {
 }
 ```
 
-#### Step 6: Rebuild and push the app
+#### Step 5: Rebuild and push the app
 
-#### Step 7: session API
+#### Step 6: session API
 
 http://pizza-store-pcc-client.apps.xyz.com/session
 

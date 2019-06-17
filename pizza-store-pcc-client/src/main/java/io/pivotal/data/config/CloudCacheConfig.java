@@ -12,7 +12,7 @@ import io.pivotal.data.domain.Customer;
 import io.pivotal.data.repo.CustomerRepo;
 
 
-@EnableGemFireHttpSession(poolName = "DEFAULT",regionName = "springsessions")
+@EnableGemFireHttpSession(poolName = "DEFAULT",regionName = "ClusteredSpringSessions")
 @EnableEntityDefinedRegions(basePackageClasses = Customer.class)
 @EnableGemfireRepositories(basePackageClasses = CustomerRepo.class)
 @ComponentScan(basePackages = "io.pivotal.data.continuousquery")

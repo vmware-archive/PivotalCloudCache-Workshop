@@ -46,7 +46,7 @@ Note: Version of PCC Cli needs to match that of PCC Cluster.
 ###### Step 1: Login into to PCC cli (GFSH) using connection information from service key
 
 ```
-connect --use-http=true --url=<gfsh-url> --user=cluster_operator --password=*******
+connect --use-http=true --url=https://<gfsh-url> --user=cluster_operator --password=******* --skip-ssl-validation
 ```
 
 Note: If `go-router` is configured only to use https connection. PCC Cli will ask for SSL/TLS information. If using Public certs, we can skip providing keystore and truststore information.

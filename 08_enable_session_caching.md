@@ -13,7 +13,7 @@ create region --name=ClusteredSpringSessions --type=PARTITION_HEAP_LRU
 ```
 <dependency>
 	<groupId>org.springframework.session</groupId>
-	<artifactId>spring-session-data-gemfire</artifactId>
+	<artifactId>spring-session-data-geode</artifactId>
 </dependency>
 ```
 
@@ -21,7 +21,7 @@ create region --name=ClusteredSpringSessions --type=PARTITION_HEAP_LRU
 
 ```
 ...
-@EnableGemFireHttpSession(poolName = "DEFAULT")
+@EnableGemFireHttpSession(poolName = "DEFAULT",regionName = "ClusteredSpringSessions")
 @Configuration
 public class CloudCacheConfig {
 }
